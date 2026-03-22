@@ -14,23 +14,28 @@
 
       <a-entity camera></a-entity>
     </a-scene>
-
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       const modelName = urlParams.get('model');
       const markerName = urlParams.get('marker');
-
-      const modelBaseUrl = "https://raw.githubusercontent.com/miifu555/circleAR/main/";
-      const markerBaseUrl = "https://raw.githubusercontent.com/miifu555/circleAR/main/";
-
+    
+      // あなたのリポジトリURL
+      const baseUrl = "https://raw.githubusercontent.com/miifu555/circleAR/main/";
+    
       // モデルのセット
       if (modelName) {
-        document.querySelector('#model').setAttribute('src', modelBaseUrl + modelName);
+        const modelEl = document.querySelector('#model');
+        modelEl.setAttribute('src', baseUrl + modelName);
       }
-
+    
       // マーカーのセット (.patt ファイル)
       if (markerName) {
-        document.querySelector('#marker').setAttribute('url', markerBaseUrl + markerName);
+        const markerEl = document.querySelector('#marker');
+        // 重要：setAttribute('url', ...) で反映されない場合は以下を試してください
+        markerEl.setAttribute('type', 'pattern');
+        markerEl.setAttribute('url', baseUrl + markerName);
+        
+        console.log("Loading Marker:", baseUrl + markerName);
       }
     </script>
   </body>
