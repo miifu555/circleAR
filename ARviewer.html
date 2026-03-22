@@ -19,31 +19,21 @@
       const modelName = urlParams.get('model');
       const markerName = urlParams.get('marker');
     
-      // あなたのリポジトリURL
-      const baseUrl = "https://raw.githubusercontent.com/miifu555/circleAR/main/";
+      const modelBaseUrl = "https://raw.githubusercontent.com/miifu555/circleAR/main/models/";
+      const markerBaseUrl = "https://raw.githubusercontent.com/miifu555/circleAR/main/markers/";
     
-      // モデルのセット
       if (modelName) {
         const modelEl = document.querySelector('#model');
         modelEl.setAttribute('src', baseUrl + modelName);
       }
     
-      // マーカーのセット (.patt ファイル)
       if (markerName) {
         const markerEl = document.querySelector('#marker');
-        // 重要：setAttribute('url', ...) で反映されない場合は以下を試してください
-        markerEl.setAttribute('type', 'pattern');
-        markerEl.setAttribute('url', baseUrl + markerName);
+        markerEl.setAttribute('url', markerBaseUrl + markerName);
+        modelEl.setAttribute('src', modelBaseUrl + modelName);
         
         console.log("Loading Marker:", baseUrl + markerName);
       }
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
