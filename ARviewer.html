@@ -22,12 +22,10 @@
       const baseUrl = "https://raw.githubusercontent.com/miifu555/circleAR/main/";
     
       if (modelName) {
-        document.querySelector('#model').setAttribute('src', baseUrl + modelName);
+        document.querySelector('#model').setAttribute('src', modelName);
       }
-
-      // マーカーのセット (.patt ファイル)
       if (markerName) {
-        document.querySelector('#marker').setAttribute('url', baseUrl + markerName);
+        document.querySelector('#marker').setAttribute('url', markerName);
       }
     </script>
   </body>
